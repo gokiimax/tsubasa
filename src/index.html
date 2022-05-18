@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tsubasa</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="js/appFunctions.js"></script>
+  </head>
+  <body>
+    <div class="mainApp">   
+      
+      <div id="header">
+        <div class="topBar">
+          <div class="titleBar">
+            <img src="icons/icon_top_bar.png" alt="">
+            <div class="title">Tsubasa 
+              <i id="save-dot" class="fa-solid fa-circle-small"></i>
+              <span id="filename">Untitled-1</span>
+            </div>
+          </div>
+  
+          <div class="titleBarBtns">
+            <button id="minimizeBtn" class="topBtn minimizeBtn" title="Minimize"><i class="fa-solid fa-window-minimize"></i></button>
+            <button id="maxResBtn" class="topBtn maximizeBtn" title="Maximize"><i id="maxResIcon" class="fa-solid fa-window-maximize"></i></button>
+            <button id="closeBtn" class="topBtn closeBtn" title="Close"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contentArea">
+        <div class="contentPages">
+          <div class="container">
+            <!-- Editor -->
+            <div class="main-content">
+                <textarea class="text-editor" id="text-editor" spellcheck="false" autocomplete="off" autofocus></textarea>
+              <div class="preview" id="preview"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/main.js"></script>
+      <script src="js/showdown.js"></script>
+      <script src="js/fileSystemV2.js"></script>
+    </div>
+  </body>
+</html>
