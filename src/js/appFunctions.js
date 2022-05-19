@@ -1,7 +1,9 @@
 const { ipcRenderer } = require('electron')
 const maxResIcon = document.getElementById('maxResIcon')
 const maxResBtn = document.getElementById('maxResBtn')
+const Sidebar = document.getElementById('Sidebar')
 const ipc = ipcRenderer;
+var isLeftMenuActive = true;
 
 /* Minimize Application*/
 minimizeBtn.addEventListener('click', () => {
@@ -30,3 +32,23 @@ ipc.on('isRestored', () => { changeMaxesBtn(false)} );
 closeBtn.addEventListener('click', () => {
     ipc.send('closeApp')
 })
+
+/* TOGGLE MENU */
+showHideMenus.addEventListener('click', () => {
+    if(isLeftMenuActive) {
+        Sidebar.style.width = '200px';
+        isLeftMenuActive = false;
+    } else {
+        Sidebar.style.width = '0px';
+        isLeftMenuActive = true;
+    }
+})
+
+// Add submenu for sidebar
+let arrow = document.querySelectorAll('.arrow');
+for(var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener('click', (e) => {
+        let arrowParent = e.target.parentElement.parentElement;
+        arrowParent.classList.toggle('showMenu')
+    })
+}

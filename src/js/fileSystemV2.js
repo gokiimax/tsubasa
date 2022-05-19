@@ -12,6 +12,8 @@ var saved = true;
 var text_editor = document.getElementById('text-editor')
 var title_fileName = document.getElementById('filename')
 var saved_dot = document.getElementById('save-dot')
+var openBtn = document.getElementById('openBtn')
+var saveBtn = document.getElementById('saveBtn')
 
 // Add keydown event for saving and opening
 document.addEventListener('keydown', (event) => {
@@ -29,6 +31,16 @@ document.addEventListener('keydown', (event) => {
     else if(event.ctrlKey && name === 'S') {
         saveFileAs()
     }
+})
+
+// Add Open Button Event
+openBtn.addEventListener('click', () => {
+    openFiles()
+})
+
+// Add Save Button Event
+saveBtn.addEventListener('click', () => {
+    saveFileAs()
 })
 
 // Add keydown event for save-dot 
@@ -60,6 +72,7 @@ function openFiles() {
 
         // Save the file
         openFile = files[0];
+        window.localStorage.setItem('openFile', openFile);
         
         /* Update File in tab */
         onlyFilename = openFile.replace(/^.*[\\\/]/, '')
@@ -101,6 +114,7 @@ function saveFiles() {
             }
             // Change openFile content
             openFile = result.filePath;
+            window.localStorage.setItem('openFile', openFile);
 
             /* Update File in tab */
             onlyFilename = openFile.replace(/^.*[\\\/]/, '')
@@ -111,7 +125,6 @@ function saveFiles() {
             saved_dot.style.opacity = 0
         }).catch((err) => {
             console.error(err)
-            openFile = openFile;
         })
     }
 }
@@ -149,4 +162,13 @@ function saveFileAs() {
         console.error(err)
         openFile = 'Untitled';
     })
+}
+
+const storedFile = window.localStorage.getItem('openFile')
+
+if(storedFile) {
+    openFile = storedFile;
+
+    onlyFilename = openFile.replace(/^.*[\\\/]/, '')
+    title_fileName.innerHTML = onlyFilename
 }
