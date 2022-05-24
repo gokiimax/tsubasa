@@ -1,8 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const remoteMain = require('@electron/remote/main');
 const path = require('path');
+const { EventEmitter } = require('stream');
 const ipc = ipcMain
 
+EventEmitter.setMaxListeners(20)
 remoteMain.initialize();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -10,6 +12,14 @@ if (require('electron-squirrel-startup')) {
   // eslint-disable-line global-require
   app.quit();
 }
+
+// Create Application for windows
+app.setUserTasks([{
+  program: process.execPath,
+  arguments: '--new-window',
+  title: 'Tsubasa',
+  description: 'Editor'
+}])
 
 const createWindow = () => {
   // Create the browser window.
@@ -19,6 +29,7 @@ const createWindow = () => {
     minWidth: 1140,
     minHeight: 560,
     frame: false,
+    icon: path.join(__dirname, 'icons/icon_top_bar.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

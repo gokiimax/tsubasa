@@ -1,7 +1,8 @@
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, clipboard } = require('electron')
 const maxResIcon = document.getElementById('maxResIcon')
 const maxResBtn = document.getElementById('maxResBtn')
 const Sidebar = document.getElementById('Sidebar')
+const textEdtr = document.getElementById('text-editor')
 const ipc = ipcRenderer;
 var isLeftMenuActive = true;
 

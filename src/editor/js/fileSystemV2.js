@@ -14,6 +14,7 @@ var title_fileName = document.getElementById('filename')
 var saved_dot = document.getElementById('save-dot')
 var openBtn = document.getElementById('openBtn')
 var saveBtn = document.getElementById('saveBtn')
+var newBtn = document.getElementById('newBtn')
 
 // Add keydown event for saving and opening
 document.addEventListener('keydown', (event) => {
@@ -31,6 +32,11 @@ document.addEventListener('keydown', (event) => {
     else if(event.ctrlKey && name === 'S') {
         saveFileAs()
     }
+})
+
+// Add New File Button
+newBtn.addEventListener('click', () => {
+    createNew()
 })
 
 // Add Open Button Event
@@ -100,7 +106,7 @@ function saveFiles() {
         title: 'Tsubasa | Save...',
     }
 
-    if(openFile) {
+    if(openFile !== undefined) {
         console.log(openFile)
         writeFiles(openFile, document.getElementById('text-editor').value)
         saved_dot.style.opacity = 0
@@ -109,7 +115,7 @@ function saveFiles() {
             filename = result.filePath;
     
             /* Checking if user sets a Filename*/
-            if(filename === undefined) {
+            if(filename === undefined || filename === '') {
                 return console.log('[ERROR] User clicked Save-Button but filename is undefined!')
             }
             // Change openFile content
@@ -125,6 +131,7 @@ function saveFiles() {
             saved_dot.style.opacity = 0
         }).catch((err) => {
             console.error(err)
+            openFile = undefined
         })
     }
 }
@@ -160,7 +167,7 @@ function saveFileAs() {
         saved_dot.style.opacity = 0
     }).catch((err) => {
         console.error(err)
-        openFile = 'Untitled';
+        openFile = undefined
     })
 }
 
@@ -171,4 +178,16 @@ if(storedFile) {
 
     onlyFilename = openFile.replace(/^.*[\\\/]/, '')
     title_fileName.innerHTML = onlyFilename
+}
+
+function createNew() {
+    openFile = undefined
+    window.localStorage.clear()
+
+    text_editor.value = ''
+    content = text_editor.value;
+    renderPreview(content)
+
+    /* Update File in tab */
+    title_fileName.innerHTML = 'Untitled-1'
 }

@@ -1,8 +1,8 @@
 {
-  "name": "tsubasa-editor",
-  "productName": "tsubasa-editor",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "name": "Tsubasa",
+  "productName": "Tsubasa",
+  "version": "beta",
+  "description": "Electron based Editor with markdown Preview",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
