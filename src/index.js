@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const remoteMain = require('@electron/remote/main');
 const path = require('path');
 const { EventEmitter } = require('stream');
@@ -73,7 +73,7 @@ const createWindow = () => {
     mainWindow.on('unmaximize', () => {
       mainWindow.webContents.send('isRestored')
     })
-};
+}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
