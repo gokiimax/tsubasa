@@ -2,6 +2,11 @@
 
 ![](https://raw.githubusercontent.com/gokiimax/tsubasa/master/demo.png)
 
+## Install with Setup
+Just download the Setup and open `Tsubasa Setup.exe`
+<br>
+[Download Setup](https://github.com/gokiimax/tsubasa/releases/download/v1.0/Tsubasa.Setup.exe)
+
 ## Getting started
 
 Clone the repository with 
