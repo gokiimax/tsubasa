@@ -1,5 +1,9 @@
 # Tsubasa Editor v0.1
 
+![](https://raw.githubusercontent.com/gokiimax/tsubasa/master/demo.png)
+
+## Getting started
+
 Clone the repository with 
 <br>
 `git clone https://github.com/gokiimax/tsubasa.git`
