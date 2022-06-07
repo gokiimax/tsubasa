@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
 :root {
-    --main-title-color: rgb(32, 32, 32);
-    --main-bg-color: #333;
-    --main-bg-color-lighter: rgb(32, 32, 32);
-    --main-bg-color-darker: rgb(41, 41, 41);
-    --main-hover-color: #6e5494;
-    --main-active-color: #6e5494;
-    --main-font-color: #dadada;
+    --main-title-color: #202020;
+    --main-bg-color: #282828;
+    --main-bg-color-lighter: #202020;
+    --main-bg-color-darker: rgb(31, 30, 30);
+    --main-hover-color: #b8ba37;
+    --main-active-color: #b8ba37;
+    --main-font-color: #dfdfdf;
 
     --inline-code: #3c3d3f;
 }
